@@ -1,0 +1,100 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install dependencies",
+			"type": "shell",
+			"command": "npm install"
+		},
+		{
+			"label": "Install Playwright Chromium",
+			"type": "shell",
+			"command": "npx playwright install chromium"
+		},
+		{
+			"label": "Run API server",
+			"type": "shell",
+			"command": "node index.js"
+		},
+		{
+			"label": "Install deps again",
+			"type": "shell",
+			"command": "npm install"
+		},
+		{
+			"label": "Install dependencies",
+			"type": "shell",
+			"command": "npm install"
+		},
+		{
+			"label": "Start API server",
+			"type": "shell",
+			"command": "node index.js"
+		},
+		{
+			"label": "Test API",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/reservas?year=2025&month=11&day=01&area=7&room=60'"
+		},
+		{
+			"label": "Test Lab 1 Segunda",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/reservas?year=2025&month=11&day=03&area=7&room=1'"
+		},
+		{
+			"label": "Test Lab 2 Segunda",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/reservas?year=2025&month=11&day=03&area=7&room=2'"
+		},
+		{
+			"label": "Test Lab 1 Quarta",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/reservas?year=2025&month=11&day=05&area=7&room=1'"
+		},
+		{
+			"label": "Test Lab 2 Quarta",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/reservas?year=2025&month=11&day=05&area=7&room=2'"
+		},
+		{
+			"label": "Test Lab Info II Segunda",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/reservas?year=2025&month=11&day=03&area=7&room=7'"
+		},
+		{
+			"label": "Test Lab Info II Quarta",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/reservas?year=2025&month=11&day=05&area=7&room=7'"
+		},
+		{
+			"label": "Get Mapa",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/mapa'"
+		},
+		{
+			"label": "Kill server",
+			"type": "shell",
+			"command": "pkill -f 'node index.js'"
+		},
+		{
+			"label": "Restart server",
+			"type": "shell",
+			"command": "node index.js"
+		},
+		{
+			"label": "Get Mapa",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/mapa'"
+		},
+		{
+			"label": "Start server background",
+			"type": "shell",
+			"command": "node index.js &"
+		},
+		{
+			"label": "Get Mapa",
+			"type": "shell",
+			"command": "curl 'http://localhost:3000/mapa'"
+		}
+	]
+}

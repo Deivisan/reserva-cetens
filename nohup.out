@@ -1,0 +1,67 @@
+API rodando em http://localhost:3001
+mapa called
+API rodando em http://localhost:3001
+API rodando em http://localhost:3001
+page loaded
+select count: 1
+select names: [ 'typematch[]' ]
+API rodando em http://localhost:3001
+page.waitForSelector: Timeout 10000ms exceeded.
+Call log:
+[2m  - waiting for locator('select[name="area"]') to be visible[22m
+
+    at /home/deivi/Projetos/temp/reserva cetens/index.js:55:16 {
+  name: 'TimeoutError'
+}
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/home/deivi/Projetos/temp/reserva cetens/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/deivi/Projetos/temp/reserva cetens/index.js:96:5)
+    at Module._compile (node:internal/modules/cjs/loader:1759:14)
+    at Object..js (node:internal/modules/cjs/loader:1892:10)
+    at Module.load (node:internal/modules/cjs/loader:1479:32)
+    at Module._load (node:internal/modules/cjs/loader:1298:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3001
+}
+
+Node.js v25.0.0
+API rodando em http://localhost:3001
+page.waitForSelector: Timeout 10000ms exceeded.
+Call log:
+[2m  - waiting for locator('select[name="area"]') to be visible[22m
+
+    at /home/deivi/Projetos/temp/reserva cetens/index.js:56:16 {
+  name: 'TimeoutError'
+}
+API rodando em http://localhost:3001
+API rodando em http://localhost:3001
+/home/deivi/Projetos/temp/reserva cetens/index.js:9
+const app = express();
+            ^
+
+ReferenceError: express is not defined
+    at Object.<anonymous> (/home/deivi/Projetos/temp/reserva cetens/index.js:9:13)
+    at Module._compile (node:internal/modules/cjs/loader:1759:14)
+    at Object..js (node:internal/modules/cjs/loader:1892:10)
+    at Module.load (node:internal/modules/cjs/loader:1479:32)
+    at Module._load (node:internal/modules/cjs/loader:1298:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v25.0.0
