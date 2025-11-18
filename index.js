@@ -35,13 +35,28 @@ app.get('/reservas', async (req, res) => {
     const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(2000); // Aguardar carregamento completo
 
     // Extrair headers das salas
-    const headers = await page.locator('table th').allTextContents();
-    const salaNames = headers.filter(h => h.includes('Sala')).map(h => h.trim());
+    const table = page.locator('table').filter({ hasText: 'Time:' });
+    const headers = await table.locator('th').allTextContents();
+    const salaNames = headers.filter(h => h.trim() !== '' && h.trim() !== 'Time:').map(h => h.trim());
+    console.log(`Sala names para área ${area}:`, salaNames);
+
+    if (salaNames.length === 0) {
+      console.log(`Nenhuma sala encontrada para área ${area}, tentando locator alternativo`);
+      // Tentar locator alternativo
+      const altHeaders = await page.locator('table').first().locator('th').allTextContents();
+      console.log(`Headers alternativos:`, altHeaders);
+      const altSalaNames = altHeaders.filter(h => h.includes('Sala')).map(h => h.trim());
+      if (altSalaNames.length > 0) {
+        salaNames.push(...altSalaNames);
+      }
+    }
 
     // Extrair linhas da tabela
-    const rows = await page.locator('table tbody tr').all();
+    const rows = await table.locator('tbody tr').all();
+    console.log(`Número de rows para área ${area}:`, rows.length);
     const salas = salaNames.map(name => ({ nome: name, reservas: [], disponivel_manutencao: true }));
 
     const slots = ['07:00', '07:30', '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'];
