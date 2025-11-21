@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas CETENS - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">🏛️</div>
+                <div class="logo-text">
+                    <h1>CETENS UFRB</h1>
+                    <p>Reservas de Salas</p>
+                </div>
+            </div>
+            <div class="current-time" id="currentTime"></div>
+        </header>
+
+        <!-- Main Content: 2 columns (Hoje | Amanhã) -->
+        <main class="main-content">
+            <!-- Coluna HOJE -->
+            <section class="day-column">
+                <div class="day-header today">
+                    <div class="day-label">HOJE</div>
+                    <div class="day-date" id="todayDate"></div>
+                </div>
+                <div class="rooms-container" id="todayRooms">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Carregando...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Coluna AMANHÃ -->
+            <section class="day-column">
+                <div class="day-header tomorrow">
+                    <div class="day-label">AMANHÃ</div>
+                    <div class="day-date" id="tomorrowDate"></div>
+                </div>
+                <div class="rooms-container" id="tomorrowRooms">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Carregando...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-item">
+                <span class="status-dot available"></span>
+                <span>Disponível</span>
+            </div>
+            <div class="footer-item">
+                <span class="status-dot occupied"></span>
+                <span>Ocupada</span>
+            </div>
+            <div class="footer-item">
+                <span>🔄</span>
+                <span>Atualiza a cada 5 minutos</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

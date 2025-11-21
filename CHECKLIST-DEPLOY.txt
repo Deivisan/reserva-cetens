@@ -1,0 +1,31 @@
+========================================= 
+  CHECKLIST DE DEPLOY - Dashboard CETENS 
+========================================= 
+ 
+Data: 21/11/2025 15:39:42,16 
+ 
+[ ] 1. Transferir cetens-dashboard-deploy.zip para servidor 
+[ ] 2. Extrair arquivos no servidor 
+[ ] 3. Executar: docker-compose up -d --build 
+[ ] 4. Aguardar 2-3 minutos 
+[ ] 5. Acessar http://localhost:8080 
+[ ] 6. Verificar se dados estao carregando 
+[ ] 7. Configurar modo fullscreen (F11) 
+[ ] 8. Configurar auto-start (se necessario) 
+ 
+========================================= 
+  ARQUIVOS INCLUIDOS NO ZIP 
+========================================= 
+ 
+- index.js (API) 
+- package.json 
+- dashboard/ (HTML, CSS, JS) 
+- Dockerfile 
+- docker-compose.yml 
+- nginx.conf 
+- .dockerignore 
+- DEPLOY-KIOSQUE.md (guia completo) 
+ 
+========================================= 
+Para duvidas, consulte: DEPLOY-KIOSQUE.md 
+========================================= 
