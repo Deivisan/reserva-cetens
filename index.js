@@ -20,7 +20,7 @@ const nextSlot = (time) => {
 };
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3005;
 
 app.get('/reservas', async (req, res) => {
   console.log('Endpoint /reservas chamado');
@@ -302,6 +302,20 @@ app.get('/aulas-periodo', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Erro ao buscar aulas do período', detalhes: error.message });
   }
+});
+
+// Rota de health check
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', uptime: process.uptime() });
+});
+
+app.get('/', (req, res) => {
+  res.json({ 
+    service: 'reserva-cetens-api',
+    version: '1.0.0',
+    status: 'running',
+    endpoints: ['/areas', '/reservas', '/aulas-periodo', '/health']
+  });
 });
 
 try {
